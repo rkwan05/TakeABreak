@@ -41,6 +41,7 @@ body {
 #another {
     position: absolute;
     bottom: 5%;
+    background-color:gold;
 }
 
 #finished {
