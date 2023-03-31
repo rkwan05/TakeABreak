@@ -1,10 +1,23 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 import sqlite3
+# from flask_sqlalchemy import SQLAlchemy #<-- this is an easier/safer way to do SQL back-end
+# from sqlalchemy import exc
 
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'dkf3sldkjfDF23fLJ3a'
+
+
+
+# bcrypt = Bcrypt(app)
+
+# app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes = 10)
+
+#we need to point flask to our SQLAlchemy database and
+#then instantiate it
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+# db = SQLAlchemy(app)
 
 
 # connect to the SQL Database
@@ -21,15 +34,69 @@ cur = con.cursor()
 #     )
 # """
 
+#Creating prompts table
+sql_query = """
+    CREATE TABLE IF NOT EXISTS Prompts
+    (
+        title TEXT PRIMARY KEY,
+        category TEXT,
+        explanation TEXT
+    )
+"""
+
+# class Prompts(db.Model):
+#     __tablename__ = 'Prompts'
+#     title = db.Column(db.String(50), primary_key=True)
+#     text = db.Column(db.String(100), primary_key=True)
+
+# with app.app_context():
+#     db.create_all()
+
+cur.execute(sql_query)
+# sql_query = """INSERT INTO Prompts VALUES
+#     ('Spot', 'mind', 'Look outside and try to spot an object of every colour of the rainbow'),
+#     ('Jump', 'move', 'Do 15 jumping jacks'),
+#     ('Calm', 'mind', 'Take 10 deep breaths'),
+#     ('Reflect', 'mind', 'What is something you are grateful for today?');
+    
+# """
 # cur.execute(sql_query)
-# # sql_query = "INSERT INTO User Values('admin', 'admin','Admin')"
-# # cur.execute(sql_query)
-# print("hello" + sql_query)
+# con.commit()
 # cur.close()
 
 
-@app.route("/")
+@app.route('/query', methods=['POST'])
+def handle_query():
+    query = request.json['query'] # extract the SQL query from the AJAX request
+    print("here" + query)
+    con = sqlite3.connect('database.db') # connect to the SQLite database
+    cursor = con.cursor()
+    cursor.execute(query) # execute the SQL query
+    results = cursor.fetchall() # retrieve the query results
+    con.close()
+    return jsonify(results)
+
+
+@app.route("/", methods=['POST', 'GET'])
 def home():
+    
+    # if(request.method == 'GET'):
+    #     try:
+    #         sql_query="""
+    #             SELECT * FROM table_name
+    #             ORDER BY RAND()
+    #             LIMIT 1;
+    #         """
+    #         con = sqlite3.connect("database.db")
+    #         cur = con.cursor()
+    #         cur.execute(sql_query)
+    #         con.commit()
+    #         cur.close()
+    #     except sqlite3.IntegrityError:
+    #         #if we're in here, then not able to select a random query
+    #         return render_template("home.html")
+
+   
     return render_template("home.html")
 
 

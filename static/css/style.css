@@ -1,5 +1,18 @@
 .card {
-    background-color: beige;
+    background-color: lightblue;
     width: 30rem;
     height: 20rem;
+    display: none;
+}
+
+#timer {
+    font-size: 15rem;
+}
+
+/* #cardHolder {
+    display: none;
+} */
+
+#displayBtn {
+    display: none;
 }
