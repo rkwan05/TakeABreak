@@ -34,11 +34,29 @@
     </div>
     {%- endmacro %}
 
-    <div class="d-flex justify-content-center">
+    <div class="content d-flex justify-content-center">
         <p>{{ card('Text') }}</p>
-        <p id="timer"></p>
-        <button id="displayBtn" type="button" class="btn btn-light">Next</button>
+        <div id="timerDiv">
+            <p id="timer">00:00</p>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Minutes</span>
+                </div>
+                <input id="minInput" type="number" class="form-control" placeholder="" aria-label="Minutes"
+                    aria-describedby="basic-addon1">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Seconds</span>
+                </div>
+                <input id="secInput" type="number" class="form-control" placeholder="" aria-label="Seconds"
+                    aria-describedby="basic-addon1">
+                <button id="start" type="button" class="btn btn-primary">Start</button>
+            </div>
+
+        </div>
+        <button id="displayBtn" type="button" class="btn btn-customize">Next</button>
+
     </div>
+
 
 </body>
 

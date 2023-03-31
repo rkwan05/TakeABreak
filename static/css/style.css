@@ -16,3 +16,43 @@
 #displayBtn {
     display: none;
 }
+
+.btn-customize {
+    background-color: lightblue;
+}
+
+body {
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    height: 100vh;
+    align-items: center;
+}
+
+
+.class-body {
+    height: 100%;
+}
+
+#another {
+    position: absolute;
+    bottom: 5%;
+}
+
+#finished {
+    position: absolute;
+    bottom: 5%;
+    right: 4%;
+}
+
+.card-title {
+    font-size: 3rem;
+}
+
+.card-text {
+    font-size: 2rem;
+}

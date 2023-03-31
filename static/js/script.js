@@ -1,4 +1,5 @@
 const timerDisplay = document.querySelector('#timer');
+const timerDiv = document.querySelector("#timerDiv");
 
 const card = document.querySelector(".card");
 const displayBtn = document.querySelector("#displayBtn");
@@ -14,8 +15,13 @@ const cardExplanation = document.querySelector(".card-text");
 const cardTitle = document.querySelector(".card-title");
 const cardCategory = document.querySelector(".card-subtitle");
 
+const minInput = document.querySelector("#minInput");
+const secInput = document.querySelector("#secInput");
 
-window.addEventListener("DOMContentLoaded", timer);
+const startBtn = document.querySelector("#start");
+startBtn.addEventListener("click", timer);
+
+
 window.addEventListener("DOMContentLoaded", newQuery);
 
 function newQuery() {
@@ -36,8 +42,11 @@ function newQuery() {
 
 
 function timer() {
-    var min = 0;
-    var sec = 2;
+    var min = minInput.value;
+    var sec = secInput.value;
+
+    console.log("min here" + min);
+
     var timer = setInterval(function () {
         var result = "";
         if (min < 10) {
@@ -74,13 +83,13 @@ function setCardInformation(title, category, explanation) {
 
 function displayCard() {
     displayBtn.style.display = "none";
-    timerDisplay.style.display = "none";
+    timerDiv.style.display = "none";
     card.style.display = "block";
 
 }
 
 function displayTimer() {
-    timerDisplay.style.display = "block";
+    timerDiv.style.display = "block";
     card.style.display = "none";
 }
 
