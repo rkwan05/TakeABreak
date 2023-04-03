@@ -3,10 +3,11 @@
     width: 30rem;
     height: 20rem;
     display: none;
+    outline: none;
 }
 
 #timer {
-    font-size: 15rem;
+    font-size: 30vh;
 }
 
 /* #cardHolder {
@@ -26,6 +27,12 @@ body {
     align-items: center;
     display: flex;
     justify-content: center;
+    background-image: url('../img/bkg3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+
 }
 
 .content {
@@ -41,7 +48,8 @@ body {
 #another {
     position: absolute;
     bottom: 5%;
-    background-color:gold;
+    background-color: dodgerblue;
+    color: white;
 }
 
 #finished {
@@ -56,4 +64,26 @@ body {
 
 .card-text {
     font-size: 2rem;
+}
+
+#minInput,
+#secInput {
+    width: 5%;
+}
+
+.navigation {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+.navigation a {
+    text-decoration: none;
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
+}
+
+.navigation a:hover {
+    color: cadetblue;
 }
