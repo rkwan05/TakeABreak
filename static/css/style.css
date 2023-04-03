@@ -87,3 +87,12 @@ body {
 .navigation a:hover {
     color: cadetblue;
 }
+
+#add {
+    float: right;
+    margin-right: 60px;
+}
+
+.navigation {
+    width: 100vw;
+}

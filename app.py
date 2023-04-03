@@ -127,6 +127,9 @@ def home():
 #         return render_template('signup.html')
 
 
+@app.route("/add.html", methods=['POST', 'GET'])
+def add():
+    return render_template('add.html');
 # @app.route("/", methods=['GET', 'POST'])
 # def login():
 #     if(request.method == "POST"):
