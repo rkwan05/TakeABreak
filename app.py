@@ -68,7 +68,7 @@ cur.execute(sql_query)
 @app.route('/query', methods=['POST'])
 def handle_query():
     query = request.json['query'] # extract the SQL query from the AJAX request
-    print("here" + query)
+    #print("here" + query)
     con = sqlite3.connect('database.db') # connect to the SQLite database
     cursor = con.cursor()
     cursor.execute(query) # execute the SQL query
@@ -129,7 +129,29 @@ def home():
 
 @app.route("/add.html", methods=['POST', 'GET'])
 def add():
-    return render_template('add.html');
+    if(request.method == "POST"):
+        print("testing")
+
+        title = request.form['title']
+        category = request.form['category']
+        explanation = request.form['explanation']
+
+        try:
+            sql_query = "INSERT INTO Prompts VALUES ('"
+            sql_query += title + "', '" + category + "', '" + explanation + "')"
+            con = sqlite3.connect("database.db")
+            cur = con.cursor()
+            cur.execute(sql_query)
+            con.commit()  # commit the results
+            print("sql query:" + sql_query)
+            # flash("User successfully created")
+            cur.close()
+            return redirect(url_for('home'))
+        except sqlite3.IntegrityError:
+            flash("Prompt already exists, please enter a different prompt")
+            return render_template(url_for("add"))
+
+    return render_template(url_for('add'))
 # @app.route("/", methods=['GET', 'POST'])
 # def login():
 #     if(request.method == "POST"):

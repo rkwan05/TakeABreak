@@ -25,26 +25,28 @@
     {% endwith %}
 
     <div class="content">
+        <form class="form" action="/add.html" method="POST">
+            <!-- <div class="input-group mb-3"> -->
+                <h4>Enter title: </h4>
+                <input name="title" type="text" class="form-control" placeholder="Title" aria-label="Title"
+                    aria-describedby="basic-addon1" required>
+            <!-- </div> -->
 
-        <div class="input-group mb-3">
-            <h4>Enter title: </h4>
-            <input type="text" class="form-control" placeholder="Title" aria-label="Title"
-                aria-describedby="basic-addon1">
-        </div>
+            <!-- <div class="input-group mb-3"> -->
+                <h4>Enter category: </h4>
+                <input name="category" type="text" class="form-control" placeholder="Category" aria-label="Category"
+                    aria-describedby="basic-addon1" required>
+            <!-- </div> -->
 
-        <div class="input-group mb-3">
-            <h4>Enter category: </h4>
-            <input type="text" class="form-control" placeholder="Category" aria-label="Category"
-                aria-describedby="basic-addon1">
-        </div>
+            <!-- <div class="input-group mb-3"> -->
+                <h4>Enter explanation: </h4>
+                <input name="explanation" type="text" class="form-control" placeholder="Description"
+                    aria-label="Description" aria-describedby="basic-addon1" required>
+            <!-- </div> -->
 
-        <div class="input-group mb-3">
-            <h4>Enter explanation: </h4>
-            <input type="text" class="form-control" placeholder="Description" aria-label="Description"
-                aria-describedby="basic-addon1">
-        </div>
+        <button type="Submit" value="Submit">Submit</button>
+    </form>
 
-        <button type="Submit">Submit</button>
 
     </div>
 
