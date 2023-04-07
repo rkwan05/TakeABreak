@@ -1,0 +1,24 @@
+in app.py:
+    uncomment "execute this when creating a new database" to populate the database
+
+    ############
+    # Execute this when creating a new database 
+    ############
+
+    # sql_query = """INSERT INTO Prompts VALUES
+    #     ('Spot', 'mind', 'Look outside and try to spot an object of every colour of the rainbow'),
+    #     ('Jump', 'move', 'Do 15 jumping jacks'),
+    #     ('Calm', 'mind', 'Take 10 deep breaths'),
+    #     ('Reflect', 'mind', 'What is something you are grateful for today?');
+        
+    # """
+    # cur.execute(sql_query)
+    # con.commit()
+    # cur.close()
+
+
+add a new prompt (top right button) to add a new break prompt in the database
+
+enter the time in the 'minutes' and 'seconds' you want to work in the input fields and press "start"
+
+to generate a different break prompt, "Do another exercise" randomly generates an sql query 

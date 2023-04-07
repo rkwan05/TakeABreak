@@ -26,10 +26,10 @@ window.addEventListener("DOMContentLoaded", newQuery);
 
 function newQuery() {
     let query = "SELECT * FROM Prompts ORDER BY RANDOM() LIMIT 1;";
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/query", true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function () {
+    let x = new XMLHttpRequest();
+    x.open("POST", "/query", true);
+    x.setRequestHeader('Content-Type', 'application/json');
+    x.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             let response = JSON.parse(this.responseText);
             // Do something with the response data (e.g. display it on the page)
@@ -37,7 +37,7 @@ function newQuery() {
             console.log(response[0]);
         }
     };
-    xhr.send(JSON.stringify({ query: query }));
+    x.send(JSON.stringify({ query: query }));
 }
 
 
@@ -92,9 +92,3 @@ function displayTimer() {
     timerDiv.style.display = "block";
     card.style.display = "none";
 }
-
-// async function fetchAsync(url) {
-//     let response = await fetch(url);
-//     let data = await response.json();
-//     return data;
-// }

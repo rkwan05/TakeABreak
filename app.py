@@ -25,6 +25,7 @@ cur.execute(sql_query)
 ############
 # Execute this when creating a new database 
 ############
+
 # sql_query = """INSERT INTO Prompts VALUES
 #     ('Spot', 'mind', 'Look outside and try to spot an object of every colour of the rainbow'),
 #     ('Jump', 'move', 'Do 15 jumping jacks'),
