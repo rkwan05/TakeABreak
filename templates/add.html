@@ -14,38 +14,23 @@
 <body>
     {% extends "navigation.html" %}
     {% block content %}
-    {% with messages = get_flashed_messages(with_categories = True) %}
-    {% if messages %}
-    <ul class=flashes>
-        {% for category, message in messages %}
-        <div> {{ category }} - {{ message }} </div>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
 
     <div class="content">
         <form class="form" action="/add.html" method="POST">
-            <!-- <div class="input-group mb-3"> -->
-                <h4>Enter title: </h4>
-                <input name="title" type="text" class="form-control" placeholder="Title" aria-label="Title"
-                    aria-describedby="basic-addon1" required>
-            <!-- </div> -->
+            <h4>Enter title: </h4>
+            <input name="title" type="text" class="form-control" placeholder="Title" aria-label="Title"
+                aria-describedby="basic-addon1" required>
 
-            <!-- <div class="input-group mb-3"> -->
-                <h4>Enter category: </h4>
-                <input name="category" type="text" class="form-control" placeholder="Category" aria-label="Category"
-                    aria-describedby="basic-addon1" required>
-            <!-- </div> -->
+            <h4>Enter category: </h4>
+            <input name="category" type="text" class="form-control" placeholder="Category" aria-label="Category"
+                aria-describedby="basic-addon1" required>
 
-            <!-- <div class="input-group mb-3"> -->
-                <h4>Enter explanation: </h4>
-                <input name="explanation" type="text" class="form-control" placeholder="Description"
-                    aria-label="Description" aria-describedby="basic-addon1" required>
-            <!-- </div> -->
+            <h4>Enter explanation: </h4>
+            <input name="explanation" type="text" class="form-control" placeholder="Description"
+                aria-label="Description" aria-describedby="basic-addon1" required>
 
-        <button type="Submit" value="Submit">Submit</button>
-    </form>
+            <button type="Submit" value="Submit" class="btn btn-customize">Submit</button>
+        </form>
 
 
     </div>
